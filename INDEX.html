@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JEE Mains Score Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      label {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+        margin-right: 10px;
+      }
+      input[type=number] {
+        width: 50px;
+        text-align: right;
+      }
+      button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JEE Mains Score Calculator</h1>
+    <form>
+      <div>
+        <label for="right">Number of Right Answers:</label>
+        <input type="number" id="right" min="0" value="0">
+        <button type="button" onclick="increment('right')">+</button>
+        <button type="button" onclick="decrement('right')">-</button>
+      </div>
+      <div>
+        <label for="wrong">Number of Wrong Answers:</label>
+        <input type="number" id="wrong" min="0" value="0">
+        <button type="button" onclick="increment('wrong')">+</button>
+        <button type="button" onclick="decrement('wrong')">-</button>
+      </div>
+      <br>
+      <div>
+        <label for="positive-score">Positive Score:</label>
+        <input type="text" id="positive-score" disabled>
+      </div>
+      <div>
+        <label for="negative-score">Negative Score:</label>
+        <input type="text" id="negative-score" disabled>
+      </div>
+      <div>
+        <label for="total-score">Total Score:</label>
+        <input type="text" id="total-score" disabled>
+      </div>
+    </form>
+    <script>
+      function increment(id) {
+        var input = document.getElementById(id);
+        input.value = parseInt(input.value) + 1;
+        calculateScores();
+      }
+      function decrement(id) {
+        var input = document.getElementById(id);
+        if (input.value > 0) {
+          input.value = parseInt(input.value) - 1;
+          calculateScores();
+        }
+      }
+      function calculateScores() {
+        var right = parseInt(document.getElementById("right").value);
+        var wrong = parseInt(document.getElementById("wrong").value);
+        var positiveScore = right * 4;
+        var negativeScore = wrong;
+        var totalScore = positiveScore - negativeScore;
+        document.getElementById("positive-score").value = positiveScore;
+        document.getElementById("negative-score").value = negativeScore;
+        document.getElementById("total-score").value = totalScore;
+      }
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JEE Mains Score Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-image: linear-gradient(to bottom right, #314755, #26a0da);
+        background-attachment: fixed;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 32px;
+      }
+      form {
+        width: 90%;
+        max-width: 400px;
+        margin: auto;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+      input[type=number] {
+        font-size: 24px;
+        padding: 6px;
+        width: 60px;
+        text-align: right;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+      button {
+        font-size: 24px;
+        padding: 6px 12px;
+        border-radius: 5px;
+        border: none;
+        background-color: #fff;
+        color: #333;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        margin-left: 10px;
+      }
+      button:hover {
+        background-color: #f5f5f5;
+      }
+      input[type=text] {
+        font-size: 24px;
+        padding: 6px;
+        width: 100px;
+        text-align: right;
+        border-radius: 5px;
+        border: none;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      input[type=text]:disabled {
+        background-color: #fff;
+        color: #333;
+        box-shadow: none;
+      }
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .score-container {
+        display: flex;
+        align-items: center;
+      }
+      .score-label {
+        font-size: 28px;
+        margin-right: 10px;
+      }
+      /* Media queries */
+      @media screen and (min-width: 480px) {
+        h1 {
+          margin-top: 50px;
+          margin-bottom: 30px;
+          font-size: 48px;
+        }
+        form {
+          padding: 30px;
+        }
+        label {
+          font-size: 28px;
+        }
+        input[type=number] {
+          font-size: 28px;
+          width: 80px;
+        }
+        button {
+          font-size: 28px;
+          padding: 8px 16px;
+        }
+        input[type=text] {
+          font-size: 28
+
+  
